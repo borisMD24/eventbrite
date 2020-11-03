@@ -5,37 +5,45 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-
+    <script src="https://kit.fontawesome.com/10557b428c.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <nav class="navbar navbar-expand-md navbar-light bg-light">
-        <a href="#" class="navbar-brand">
-            <img src="images/logo.svg" height="28" alt="CoolBrand">
-        </a>
-        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-    
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-nav">
-                <a href="#" class="nav-item nav-link active">Home</a>
-                <a href="#" class="nav-item nav-link">Profile</a>
-                <a href="#" class="nav-item nav-link">Messages</a>
-                <a href="#" class="nav-item nav-link disabled" tabindex="-1">Reports</a>
-            </div>
-            <div class="navbar-nav ml-auto">
-                  <% if user_signed_in? %>
-                      <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-                  <%else%>
-                      <%= link_to "Sign in ", new_user_session_path %> or <%= link_to " Sign up", new_user_registration_path %>
-                  <%end%>
-            </div>
-        </div>
+      <div class="mx-auto w-75 p-3">
+          <a href="/" class="navbar-brand">
+              <img src="http://www.asr-tarbes.fr/wp-content/uploads/2017/07/Calendar-1.png" height="28" alt="CoolBrand">
+              Eventbrite
+          </a>
+          <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+      
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+              <div class="navbar-nav">
+                  <%= link_to "Accueil", root_path, class: "btn btn-inverse"%>
+                  <%= link_to "Edit email / password", edit_user_registration_path, class: "btn btn-inverse"%>
+              </div>
+              <div class="navbar-nav ml-auto">
+                    <% if user_signed_in? %>
+                        <%= link_to raw('Sign out <i class="fas fa-sign-out-alt"></i>'), destroy_user_session_path, method: :delete %>
+                    <%else%>
+                        <%= link_to raw('Sign in <i class="fas fa-sign-in-alt"></i> '), new_user_session_path %> 
+                        <span class="mx-2">
+                          or
+                        </span> 
+                        <%= link_to raw('Sign up <i class="fas fa-user-plus"></i>'), new_user_registration_path %>
+                    <%end%>
+              </div>
+          </div>
+      </div>
     </nav>
-    <%= yield %>
+
+    <div class="mx-auto w-75 p-5">
+      <%= yield %>
+    </div>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
   </body>
 </html>

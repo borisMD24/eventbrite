@@ -1,24 +1,15 @@
-<ul>
+
   <% if user_signed_in? %>
-    <li>
-      Voici ton email : <%= current_user.email %>
-    </li>
-
-    <li>
-      <%= link_to "Secret page", static_pages_secret_path %>
-    </li>
-
-    <li>
-      <%= link_to "Edit email / password", edit_user_registration_path %>
-    </li>
-
+    user signed in as : <%= current_user.email %>
+    <h3>
+        et c'est tout (je t'avais prevenu(e), c'est nul)<br>
+        <a href="https://www.youtube.com/watch?v=e9MRYNATwJo&t" target="_blank">
+            pour me faire pardonner, clique ici
+        </a>
   <% else %>
-    <li>    
-      <%= link_to "Sign in", new_user_session_path %>
-    </li>
-
-    <li>
-      <%= link_to "Sign up", new_user_registration_path %>
-    </li>
-
+  <div class="d-flex align-items-center justify-content-center">
+    <h1>
+        veuillez vous connecter
+    </h1>
+  </div>
   <% end %>
