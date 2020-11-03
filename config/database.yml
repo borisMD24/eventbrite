@@ -23,7 +23,7 @@ default: &default
 
 development:
   <<: *default
-  database: eventbrite_development
+  database: d3lo101fve3b46
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -57,7 +57,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: eventbrite_test
+  database: d3lo101fve3b46
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: eventbrite_production
-  username: eventbrite
-  password: <%= ENV['EVENTBRITE_DATABASE_PASSWORD'] %>
+  database: d3lo101fve3b46
+  username: smdtgblviaeayt
+  password: a4e1a370401ee6ea8f18cc1ea404b55938645e2266438c606e28c420eb36c9a1
